@@ -13,10 +13,10 @@ defmodule SentrySampleAppWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", SentrySampleAppWeb do
-    pipe_through :browser
+  scope "/math", SentrySampleAppWeb do
+    pipe_through :api
 
-    get "/", PageController, :index
+    post "/", MathController, :create
   end
 
   # Other scopes may use custom stacks.
