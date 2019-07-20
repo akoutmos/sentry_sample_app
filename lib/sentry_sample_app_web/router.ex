@@ -1,5 +1,7 @@
 defmodule SentrySampleAppWeb.Router do
   use SentrySampleAppWeb, :router
+  use Plug.ErrorHandler
+  use Sentry.Plug
 
   pipeline :browser do
     plug :accepts, ["html"]

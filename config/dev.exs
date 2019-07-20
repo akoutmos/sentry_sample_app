@@ -51,6 +51,13 @@ config :sentry_sample_app, SentrySampleAppWeb.Endpoint,
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
 
+config :sentry,
+  dsn: "http://<PUBLIC_KEY>@localhost:9000/<PROJECT_ID>",
+  enable_source_code_context: true,
+  root_source_code_path: File.cwd!(),
+  included_environments: [:dev],
+  environment_name: Mix.env()
+
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
