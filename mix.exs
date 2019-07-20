@@ -9,7 +9,8 @@ defmodule SentrySampleApp.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      aliases: aliases()
     ]
   end
 
@@ -41,5 +42,9 @@ defmodule SentrySampleApp.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:sentry, "~> 7.0"}
     ]
+  end
+
+  defp aliases do
+    [sentry_recompile: ["deps.compile sentry --force", "compile"]]
   end
 end
